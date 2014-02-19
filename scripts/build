@@ -20,8 +20,9 @@ var fileList = [
 //Create distribution files
 var contents = builder(baseDir)
   .concat(fileList)
-  .wrap('scripts/template.js', templateData)
+  .wrap('scripts/template.js')
+  .wrap('scripts/header.js', templateData)
   .save('distribution/deep-model.js')
   .uglify()
-  .wrap('scripts/template.js', templateData)
+  .wrap('scripts/header.js', templateData)
   .save('distribution/deep-model.min.js');
